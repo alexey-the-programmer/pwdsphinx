@@ -11,27 +11,11 @@ RUN pip install -r /app/requirements.txt
 COPY ./entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 
+COPY ./install_libs.sh /app/install_libs.sh
+RUN chmod +x /app/install_libs.sh
+RUN /app/install_libs.sh
+
 COPY . /app
-
-RUN mkdir /app/temp
-RUN cd /app/temp
-RUN wget -O "/app/temp/libsodium-1.0.16.tar.gz" "https://download.libsodium.org/libsodium/releases/libsodium-1.0.16.tar.gz"
-RUN tar xzf /app/temp/libsodium-1.0.16.tar.gz
-RUN cd libsodium-1.0.16
-RUN /app/temp/libsodium-1.0.16/configure
-RUN make && make check
-RUN make install
-RUN cd ..
-
-RUN git clone "https://github.com/stef/libsphinx"
-RUN cd /app/temp/libsphinx
-RUN git submodule update --init --recursive --remote
-RUN cd /app/temp/libsphinx/src
-RUN make
-RUN cd ../..
-
-RUN cd ..
-RUN rm -rf /app/temp
 
 
 ENTRYPOINT ["/app/entrypoint.sh"]

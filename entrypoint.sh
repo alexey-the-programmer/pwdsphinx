@@ -1,1 +1,2 @@
-echo "Here will be entrypoint"
+#!/usr/bin/env bash
+python start_server.py
