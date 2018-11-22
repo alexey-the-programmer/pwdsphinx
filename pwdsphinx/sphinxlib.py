@@ -22,7 +22,8 @@
 import ctypes
 import ctypes.util
 
-sphinxlib = ctypes.cdll.LoadLibrary(ctypes.util.find_library('sphinx') or ctypes.util.find_library('libsphinx'))
+# sphinxlib = ctypes.cdll.LoadLibrary(ctypes.util.find_library('sphinx') or ctypes.util.find_library('libsphinx'))
+sphinxlib = ctypes.cdll.LoadLibrary('/usr/local/lib/libsphinx.so')
 
 if not sphinxlib._name:
     raise ValueError('Unable to find libsphinx')

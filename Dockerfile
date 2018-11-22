@@ -1,8 +1,10 @@
 FROM python:3.7.1-stretch
 
 RUN apt update -y
+RUN apt upgrade -y
 RUN apt install -y aptitude
 RUN aptitude update -y
+RUN aptitude upgrade -y
 
 
 WORKDIR /app

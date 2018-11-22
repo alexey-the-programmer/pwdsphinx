@@ -1,2 +1,2 @@
-pysodium==0.7.0.post0
+pysodium==v0.6.8
 SecureString==0.2
