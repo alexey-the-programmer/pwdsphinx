@@ -1,9 +1,9 @@
-##Installation
+## Installation
 ```
 docker build -t pwdsphinx .
 ```
 
-##Run server
+## Run server
 ```
 docker run -it --rm --name=pwdsphinx-server -v $PWD:/app -p 2355:2355 -e MODE=server pwdsphinx
 ```
