@@ -5,4 +5,4 @@ then
     python client.py
 fi
 
-python start_server.py
+python server.py
