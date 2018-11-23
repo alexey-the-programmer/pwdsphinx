@@ -7,6 +7,7 @@ RUN aptitude update -y
 RUN aptitude upgrade -y
 
 
+ENV HOME /app
 WORKDIR /app
 
 COPY ./requirements.txt /app/requirements.txt
